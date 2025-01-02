@@ -1,0 +1,86 @@
+@font-face {
+  font-family: vazir;
+  src: url(./Assets/Fonts/Vazir.woff);
+}
+
+:root {
+  --darkGray: #1c1c1c;
+  --mediumGray: #333333;
+  --lightGray: #f8f8f8;
+  --primary: #0061e0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: "vazir", sans-serif;
+  color: var(--lightGray);
+}
+
+body {
+  background-color: var(--darkGray);
+  color: var(--lightGray);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: var(--mediumGray);
+  padding: 2.5em 4em;
+  border-radius: 10px;
+  width: 1000px;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 26px;
+}
+
+div.input {
+  display: flex;
+  width: 100%;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.input input {
+  width: 100%;
+  font-size: 1.4rem;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  color: var(--darkGray);
+  padding-right: 8px;
+}
+
+input:focus {
+  outline: 3px solid CornflowerBlue;
+}
+
+.input button {
+  width: 20%;
+  background-color: var(--primary);
+  border: none;
+  font-size: 1.4rem;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.input button:hover {
+  background-color: #0058cc;
+  transform: scale(0.98);
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 100;
+  margin: 2.5em 0 0.5em;
+  opacity: 0.4;
+}
