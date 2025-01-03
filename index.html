@@ -4,17 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
-    <script src="/app.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script src="/Assets/Script/app.js" defer></script>
     <title>To-Do List</title>
   </head>
   <body dir="rtl">
+    <div id="theme"></div>
     <div class="container">
       <h1>چیکار قراره بکنی؟!</h1>
-      <div class="input">
+      <form class="input">
         <input type="text" placeholder="مثلا: خرید لوازم منزل" />
-        <button>اضافه کن!</button>
-      </div>
+        <button type="submit">اضافه کن!</button>
+      </form>
       <h2>لیست خالیه... میتونی همین الان کارای مهمت رو اضافه کنی</h2>
+      <ul>
+        <li>
+          <div>
+            <input type="checkbox" id="1" />
+            <label for="1">خرید بنز </label>
+          </div>
+          <i class="fa-solid fa-trash remove" title="حذفش کن"></i>
+        </li>
+        <li>
+          <div>
+            <input type="checkbox" id="2" />
+            <label for="2">خرید شیر</label>
+          </div>
+          <i class="fa-solid fa-trash remove" title="حذفش کن"></i>
+        </li>
+      </ul>
+      <button class="reset">
+        <i class="fa-solid fa-rotate-left"></i>ریست کن
+      </button>
     </div>
   </body>
 </html>
