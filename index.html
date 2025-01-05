@@ -8,34 +8,33 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <script src="/Assets/Script/app.js" defer></script>
     <title>To-Do List</title>
   </head>
   <body dir="rtl">
-    <div id="theme"></div>
-    <div class="container">
-      <h1>چیکار قراره بکنی؟!</h1>
+    <div class="themeFix">
+      <div
+        id="theme"
+        title="تغییر تم"
+        class="animate__animated animate__fadeInLeft"
+      ></div>
+    </div>
+    <div class="container animate__animated animate__fadeIn">
+      <h1 class="animate__animated animate__fadeInRight">برنامـت چیه؟!</h1>
       <form class="input">
-        <input type="text" placeholder="مثلا: خرید لوازم منزل" />
+        <input
+          name="task"
+          type="text"
+          placeholder="مثلا: کد رو دیباگ کنم :(( "
+        />
         <button type="submit">اضافه کن!</button>
       </form>
-      <h2>لیست خالیه... میتونی همین الان کارای مهمت رو اضافه کنی</h2>
-      <ul>
-        <li>
-          <div>
-            <input type="checkbox" id="1" />
-            <label for="1">خرید بنز </label>
-          </div>
-          <i class="fa-solid fa-trash remove" title="حذفش کن"></i>
-        </li>
-        <li>
-          <div>
-            <input type="checkbox" id="2" />
-            <label for="2">خرید شیر</label>
-          </div>
-          <i class="fa-solid fa-trash remove" title="حذفش کن"></i>
-        </li>
-      </ul>
+      <h2>لیست خالیه... میتونی همین الان کارای مهمت رو اضافه کنی!</h2>
+      <div class="ul"></div>
       <button class="reset">
         <i class="fa-solid fa-rotate-left"></i>ریست کن
       </button>

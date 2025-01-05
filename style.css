@@ -1,6 +1,17 @@
 @font-face {
   font-family: vazir;
-  src: url(./Assets/Fonts/Vazir.woff);
+  src: url(./Assets/Fonts/Vazir-FD.woff);
+  font-weight: normal;
+}
+@font-face {
+  font-family: vazir;
+  src: url(./Assets/Fonts/Vazir-Bold-FD.woff);
+  font-weight: bold;
+}
+@font-face {
+  font-family: vazir;
+  src: url(./Assets/Fonts/Vazir-Thin-FD.woff);
+  font-weight: 300;
 }
 
 :root {
@@ -25,7 +36,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  text-decoration: none;
   font-family: "vazir", sans-serif;
 }
 
@@ -36,6 +46,15 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
+}
+
+.themeFix {
+  direction: ltr;
+  width: auto;
+  position: absolute;
+  top: 50px;
+  left: 50px;
 }
 
 #theme {
@@ -43,9 +62,6 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  position: absolute;
-  top: 50px;
-  left: 50px;
   color: var(--textColor);
   font-size: 2rem;
   width: 70px;
@@ -56,7 +72,7 @@ body {
 }
 
 #theme:hover {
-  transform: rotate(360deg);
+  transform: rotate(-45deg);
 }
 
 .container {
@@ -65,11 +81,17 @@ body {
   border-radius: 10px;
   width: 1000px;
   box-shadow: 0px 0px 60px -15px var(--black200);
+  position: absolute;
+  top: auto;
+  height: 300px;
+  overflow: hidden;
+  transition: height 0.6s ease-out;
 }
 
 h1 {
   font-size: 2.4rem;
   margin-bottom: 26px;
+  font-weight: bold;
 }
 
 form.input {
@@ -77,6 +99,7 @@ form.input {
   width: 100%;
   gap: 1em;
   justify-content: space-between;
+  margin-bottom: 40px;
 }
 
 .input input {
@@ -85,7 +108,6 @@ form.input {
   border-radius: 6px;
   outline: none;
   border: none;
-  color: var(--bgColor);
   padding-right: 8px;
 }
 
@@ -113,8 +135,7 @@ form.input {
 h2 {
   text-align: center;
   font-size: 1.2rem;
-  font-weight: 100;
-  margin: 2.5em 0 0.5em;
+  font-weight: normal;
   opacity: 0.4;
 }
 
@@ -153,6 +174,12 @@ label {
 .remove {
   color: red;
   cursor: pointer;
+  transition: all 0.4s;
+}
+
+.remove:hover {
+  box-shadow: 0px 0px 8px -2px red;
+  transform: scale(1.1) rotate(15deg);
 }
 
 .reset {
@@ -177,4 +204,95 @@ label {
   background-color: red;
   color: white;
   transform: scale(0.98);
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  body .container {
+    width: 75%;
+    padding: 1.5em 1em;
+  }
+  .input button {
+    width: 30%;
+  }
+}
+
+@media (min-width: 1900px) {
+  .themeFix {
+    width: 1770px;
+    top: 60px;
+    left: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 95%;
+    padding: 2.5em 3em;
+  }
+  .themeFix {
+    top: 30px;
+    left: 30px;
+  }
+}
+
+@media (max-width: 868px) {
+  .input input {
+    font-size: 1.2rem;
+  }
+  .input button {
+    font-size: 1.2rem;
+    width: 25%;
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 98%;
+    padding: 2.5em 2em;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .input button {
+    width: 30%;
+  }
+  .input button:active {
+    background-color: limegreen;
+  }
+  .reset {
+    font-size: 1.1rem;
+  }
+  .themeFix {
+    top: 15px;
+    left: 15px;
+  }
+  #theme {
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 97%;
+    padding: 2.5em 1em;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  form.input {
+    gap: 8px;
+  }
+  .input input {
+    font-size: 1.1rem;
+  }
+  .input button {
+    font-size: 1.1rem;
+    padding: 10px 0px;
+  }
+  .reset {
+    padding: 10px 12px;
+  }
 }
