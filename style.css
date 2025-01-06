@@ -55,6 +55,7 @@ body {
   position: absolute;
   top: 50px;
   left: 50px;
+  overflow: hidden;
 }
 
 #theme {
@@ -277,7 +278,7 @@ label {
 @media (max-width: 500px) {
   .container {
     width: 97%;
-    padding: 2.5em 1em;
+    padding: 2.5em 0.8em;
   }
   h2 {
     font-size: 1rem;
@@ -286,13 +287,13 @@ label {
     gap: 8px;
   }
   .input input {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
   .input button {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     padding: 10px 0px;
   }
   .reset {
-    padding: 10px 12px;
+    padding: 9px 10px;
   }
 }

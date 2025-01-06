@@ -1,6 +1,14 @@
 // Switch theme
 document.body.className = localStorage.getItem("theme") || "";
 const btnTheme = document.getElementById("theme");
+const meta = document.querySelector(`meta[name="theme-color"]`);
+
+function metaColor() {
+  document.body.classList.contains("light")
+    ? meta.setAttribute("content", "#d5d7f0")
+    : meta.setAttribute("content", "#0061e0");
+}
+metaColor();
 
 function renderIcon() {
   document.body.classList == ""
@@ -12,6 +20,7 @@ renderIcon();
 btnTheme.addEventListener("click", () => {
   document.body.classList.toggle("light");
   renderIcon();
+  metaColor();
   localStorage.setItem("theme", document.body.className);
 });
 
@@ -21,19 +30,29 @@ container.style.top = localStorage.getItem("top")
   ? localStorage.getItem("top") + "px"
   : "auto";
 
+function getPosition(length) {
+  if (todos.length == length) {
+    const distance = container.getBoundingClientRect().top;
+    return distance;
+  }
+}
+
 function fixContainer() {
   const rect = container.getBoundingClientRect();
   if (window.innerHeight <= 600) {
-    container.style.top = "50px";
+    if (todos.length == 1) {
+      container.style.top = getPosition(1) + "px";
+      todos.length == 1 ? localStorage.setItem("top", getPosition(1)) : "";
+    }
   } else {
     if (window.innerWidth > 1300) {
       if (todos.length > 8) {
-        container.style.top = rect.top + "px";
-        localStorage.setItem("top", rect.top);
+        container.style.top = getPosition(9) + "px";
+        todos.length == 9 ? localStorage.setItem("top", getPosition(9)) : "";
       } else container.style.top = "auto";
     } else if (todos.length > 5) {
-      container.style.top = rect.top + "px";
-      localStorage.setItem("top", rect.top);
+      container.style.top = getPosition(6) + "px";
+      todos.length == 6 ? localStorage.setItem("top", getPosition(6)) : "";
     } else {
       container.style.top = "auto";
     }
@@ -113,6 +132,7 @@ document.forms[0].addEventListener("submit", (e) => {
       task: inputValue,
       done: false,
     });
+    container.style.height = container.scrollHeight + 60 + "px";
   } else {
     const input = document.querySelector("form input");
     input.classList.add("animate__animated", "animate__shakeX");
@@ -123,8 +143,10 @@ document.forms[0].addEventListener("submit", (e) => {
 
   fixContainer();
 
-  renderTodos();
-  updateHeight();
+  setTimeout(() => {
+    renderTodos();
+  }, 150);
+
   e.target.elements[0].value = "";
 });
 
@@ -140,6 +162,10 @@ function removeTodo(index) {
     todos = todos.filter((item, i) => i !== index);
     if (window.innerWidth > 1300) {
       if (todos.length <= 8) {
+        localStorage.removeItem("top");
+      }
+    } else if (window.innerHeight <= 600) {
+      if (todos.length < 2) {
         localStorage.removeItem("top");
       }
     } else if (todos.length <= 5) {
